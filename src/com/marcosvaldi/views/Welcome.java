@@ -1,4 +1,4 @@
-package com.marcosvaldi;
+package com.marcosvaldi.views;
 
 
 public class Welcome {
