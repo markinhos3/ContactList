@@ -4,6 +4,7 @@ package com.marcosvaldi.generate;
 import com.marcosvaldi.actions.AddContact;
 import com.marcosvaldi.actions.DeleteContact;
 import com.marcosvaldi.managers.CommandParser;
+import com.marcosvaldi.managers.ExportFile;
 import com.marcosvaldi.model.Command;
 import com.marcosvaldi.model.ContactDetails;
 import com.marcosvaldi.model.ContactList;
@@ -11,12 +12,22 @@ import com.marcosvaldi.views.Prompt;
 import com.marcosvaldi.views.ShowHelp;
 import com.marcosvaldi.views.Welcome;
 
+import java.io.File;
+import java.io.IOException;
+
 public class GenerateDiary {
 
-   public static void generate(){
+   public static void generate() throws IOException {
+       File file = new File("ContactList");
 
        // build contactList object
-      ContactList contactList = new ContactList();
+       ContactList contactList = new ContactList();
+
+       // check if the file exists
+       if (file.exists()){
+           contactList.setContactList(ExportFile.readFile(file));
+       }
+
        boolean end = false;
 
        // call printWelcomeMessage method
@@ -24,7 +35,7 @@ public class GenerateDiary {
 
        while (end != true){
 
-           // call indexContact method and give
+           // call indexContact method and pass size
            Prompt.indexContact(contactList.getContactList().size());
 
            // read from prompt something from keyboard
@@ -37,6 +48,9 @@ public class GenerateDiary {
                    ShowHelp.printHelp();
                    break;
                case QUIT:
+                   // write ContactList File
+                   file = new File("ContactList");
+                   ExportFile.createFile(file, contactList.getContactList());
                    end = true;
                    break;
                case LIST:
@@ -57,7 +71,6 @@ public class GenerateDiary {
                    break;
                case UNKNOWN:
                    System.out.println("✈ Visit the (h)elp if you are in the clouds\n");
-
            }
        }
    }
