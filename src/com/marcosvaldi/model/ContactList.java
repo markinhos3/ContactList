@@ -17,4 +17,16 @@ public class ContactList {
     }
 
 
+    public ContactDetails getContactDetails(int i) {
+        return contactList.get(i);
+    }
+
+    public void addDates(ContactDetails contactDetails) {
+        contactList.add(contactDetails);
+
+    }
+
+    public void removeDates(int i) {
+        contactList.remove(i);
+    }
 }

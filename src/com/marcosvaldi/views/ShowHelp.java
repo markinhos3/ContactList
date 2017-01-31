@@ -1,16 +1,14 @@
 package com.marcosvaldi.views;
 
-/**
- * Created by Markinhos3 on 30/01/2017.
- */
+
 public class ShowHelp {
 
     public static void printHelp(){
-        System.out.println("☼ (H)elp- Ayuda" +
-                "ϟ (Q)uit - Finalizar el programa \n" +
-                "✍ (L)ist - Lista de todos los contactos \n" +
-                "✚ (A)dd- Añadir un contatcto \n" +
-                "✘ (D)elete- Borra un contacto \n"
+        System.out.println("\n☼ (H)elp- Show Help \n" +
+                "ϟ (Q)uit - Finish the Program \n" +
+                "✍ (L)ist - Displays all contacts in memory \n" +
+                "✚ (A)dd- Add new Contact \n" +
+                "✘ (D)elete- Delete Contact \n"
         );
     }
 }
