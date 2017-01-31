@@ -10,9 +10,9 @@ import java.util.List;
 
 public class ExportFile {
 
-    private File outFile = new File("ContactLis");
+    private File outFile = new File("ContactList");
 
-    public static void createFile(File file, List<ContactDetails> arrData)
+    public static void createFile(String file, List<ContactDetails> arrData)
             throws IOException {
         FileWriter writer = new FileWriter(file);
         int size = arrData.size();
@@ -20,8 +20,8 @@ public class ExportFile {
         for (int i=0;i<size;i++) {
             String cadena1 = arrData.get(i).getName().toString();
             String cadena2 = arrData.get(i).getPhone().toString();
-            writer.write("▶ " + cadena1 + "\n");
-            writer.write("▶ " + cadena2);
+            writer.write(i + " - NAME: " + cadena1 + "\n");
+            writer.write(" | " + i + " - PHONE: " + cadena2 + " __||__ ");
 
             if(i < size-1) {//This prevent creating a blank like at the end of the file**
                 writer.write("\n");

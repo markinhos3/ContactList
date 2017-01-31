@@ -48,29 +48,42 @@ public class GenerateDiary {
                    ShowHelp.printHelp();
                    break;
                case QUIT:
+                   System.out.println("\n     ❤❤❤ Hope to see you soon! ❤❤❤");
                    // write ContactList File
                    file = new File("ContactList");
-                   ExportFile.createFile(file, contactList.getContactList());
+                   ExportFile.createFile("ContactList.txt", contactList.getContactList());
                    end = true;
                    break;
                case LIST:
-                   for (int i = 0; i < contactList.getContactList().size() ; i++) {
-                       ContactDetails details = contactList.getContactDetails(i);
-                       System.out.println("\n▶ " + i + " → " + details.getName() + " → " + details.getPhone() + "\n");
+                   if (contactList.getContactList().size() == 0){
+                       System.out.println("\n     ✍ 1st Add Contact!");
+                   }else {
+                       for (int i = 0; i < contactList.getContactList().size(); i++) {
+                           ContactDetails details = contactList.getContactDetails(i);
+                           System.out.println("\n▶ " + i + " → " + details.getName() + " → " + details.getPhone() + "\n");
+                       }
                    }
                    break;
                case ADD:
                    ContactDetails printAdd = AddContact.writeContact();
                    contactList.addDates(printAdd);
-                   System.out.println("\n ✔ Contact SAVED! ✔\n");
+                   System.out.println("\n     ✔ Contact SAVED! ✔\n");
                    break;
                case DELETE:
-                   int i = DeleteContact.removeContact();
-                   contactList.removeDates(i);
-                   System.out.println("\n ✘ Contact REMOVED! ✘\n");
+                   try {
+                       int i = DeleteContact.removeContact();
+                       if (i < 0 || i > contactList.getContactList().size() - 1) {
+                           System.out.println("\n     ☝ Not possible to do that!");
+                       } else {
+                           contactList.removeDates(i);
+                           System.out.println("\n     ✘ Contact REMOVED! ✘\n");
+                       }
+                   }catch (NumberFormatException e){ // Treat the exception if it is String Format
+                       System.out.println("\n     ☝ Not possible to do that!");
+                   }
                    break;
                case UNKNOWN:
-                   System.out.println("✈ Visit the (h)elp if you are in the clouds\n");
+                   System.out.println("\n     ✈ Visit the (h)elp if you are in the clouds\n");
            }
        }
    }

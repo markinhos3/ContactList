@@ -7,7 +7,7 @@ public class DeleteContact {
 
     public static int removeContact(){
 
-        System.out.println("✘ Contact number to DELETE: ");
+        System.out.printf("\n✂ Contact number to DELETE: ");
         Scanner rm = new Scanner(System.in);
         String place = rm.nextLine();
         int index = Integer.parseInt(place);

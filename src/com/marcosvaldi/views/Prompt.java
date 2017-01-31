@@ -13,6 +13,6 @@ public class Prompt {
 
     public static void indexContact(int i){
 
-        System.out.println("◀[" + i + "]▶: ");
+        System.out.printf("\n◀[" + i + "]▶: ");
     }
 }
