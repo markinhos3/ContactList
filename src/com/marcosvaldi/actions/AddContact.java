@@ -24,7 +24,7 @@ public class AddContact {
 
         person.setName(name);
         person.setPhone(phone);
-        
+
         return person;
     }
 }
