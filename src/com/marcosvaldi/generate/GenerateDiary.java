@@ -22,6 +22,12 @@ public class GenerateDiary {
     public static void generate() throws IOException {
 
 
+        System.out.printf("\n     ☸ Enter the KEY: ");
+        Scanner key = new Scanner(System.in);
+        String accessKey = key.nextLine();
+
+        if (accessKey.equals("musho_beti")) {
+
             // call printWelcomeMessage method
             Welcome.printWelcomeMessage();
 
@@ -89,6 +95,9 @@ public class GenerateDiary {
                         System.out.println("\n     ✈ Visit the (h)elp if you are in the clouds\n");
                 }
             }
+        }else {
+            System.out.println("Go and read the README.md file");
+        }
    }
 
    // writeToFile
