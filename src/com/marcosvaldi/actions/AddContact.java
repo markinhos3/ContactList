@@ -3,6 +3,8 @@ package com.marcosvaldi.actions;
 
 import com.marcosvaldi.model.ContactDetails;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class AddContact {

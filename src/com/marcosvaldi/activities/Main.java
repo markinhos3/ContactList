@@ -1,4 +1,4 @@
-package com.marcosvaldi;
+package com.marcosvaldi.activities;
 
 import com.marcosvaldi.generate.GenerateDiary;
 import com.marcosvaldi.views.Welcome;
@@ -11,5 +11,6 @@ public class Main {
 
         // generate App ContactList
         GenerateDiary.generate();
+
     }
 }

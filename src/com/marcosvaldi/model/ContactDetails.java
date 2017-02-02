@@ -21,4 +21,7 @@ public class ContactDetails {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+    public String toString() {
+        return this.getName() + " - " + this.getPhone();
+    }
 }
